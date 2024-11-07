@@ -329,7 +329,7 @@ class TrailingWhitespaceValidation(_SeriesValidation):
         return 'contains trailing whitespace'
 
     def validate(self, series: pd.Series) -> pd.Series:
-        return ~series.astype(str).str.contains('\s+$')
+        return ~series.astype(str).str.contains(r'\s+$')
 
 
 class LeadingWhitespaceValidation(_SeriesValidation):
@@ -345,7 +345,7 @@ class LeadingWhitespaceValidation(_SeriesValidation):
         return 'contains leading whitespace'
 
     def validate(self, series: pd.Series) -> pd.Series:
-        return ~series.astype(str).str.contains('^\s+')
+        return ~series.astype(str).str.contains(r'^\s+')
 
 
 class IsDistinctValidation(_SeriesValidation):

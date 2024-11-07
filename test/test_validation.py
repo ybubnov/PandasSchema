@@ -345,7 +345,7 @@ class DateFormat(ValidationTestBase):
 
 class StringRegexMatch(ValidationTestBase):
     def setUp(self):
-        self.validator = MatchesPatternValidation('^.+\.txt$')
+        self.validator = MatchesPatternValidation(r'^.+\.txt$')
 
     def test_valid_strings(self):
         self.validate_and_compare(
@@ -408,7 +408,7 @@ class CompiledRegexMatch(ValidationTestBase):
     """
 
     def setUp(self):
-        self.validator = MatchesPatternValidation(re.compile('^.+\.txt$', re.IGNORECASE))
+        self.validator = MatchesPatternValidation(re.compile(r'^.+\.txt$', re.IGNORECASE))
 
     def test_valid_strings(self):
         self.validate_and_compare(
